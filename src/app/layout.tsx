@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
+import { ThemePicker } from "./components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}><div className="flex justify-between pt-4 pr-12">
+          <div></div> {/* Empty div for spacing */}
+          <ThemePicker />
+        </div>
+        <div className="flex-grow">{children}</div></body>
     </html>
   );
 }
